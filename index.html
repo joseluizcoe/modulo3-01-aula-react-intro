@@ -10,11 +10,29 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      const hello = (name) => <h1>Hello, {name}</h1>;
+
+      const friends = [
+        { name: 'Joey', gender:'M' },
+        { name: 'Chandler', gender:'M' },
+        { name: 'Ross', gender:'M'},
+        { name: 'Monica', gender:'M'},
+        { name: 'Rachel', gender:'M'},
+        { name: 'Phoebe', gender:'M'}
+      ];
 
       const App = (
         <div className="app">
-            {hello('fulano')}
+            <h1>Friends</h1>
+            <ul>
+            {
+                friends
+                    .map(
+                        friend => (
+                            <li>{friend.name}</li>
+                        )
+                    )
+            }
+            </ul>
         </div>
       );
 
