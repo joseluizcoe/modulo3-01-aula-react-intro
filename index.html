@@ -28,36 +28,40 @@
           });
       }
 
-      const App = (
-        <div className="app">
-            <h1>Friends - Men</h1>
-            <ul>
-            {
-                friendByGender('M')
-                    .map(
-                        (friend, index) => (
-                            <li key={index}>{friend.name}</li>
-                        )
-                    )
-            }
-            </ul>
+      class App extends React.Component {
+          render() {
+              return (
+                  <div className="app">
+                      <h1>Friends - Men</h1>
+                      <ul>
+                      {
+                          friendByGender('M')
+                              .map(
+                                  (friend, index) => (
+                                      <li key={index}>{friend.name}</li>
+                                  )
+                              )
+                      }
+                      </ul>
 
-            <h1>Friends - Woman</h1>
-            <ul>
-            {
-                friendByGender('F')
-                    .map(
-                        (friend, index) => (
-                            <li key={index}>{friend.name}</li>
-                        )
-                    )
-            }
-            </ul>
-        </div>
-      );
+                      <h1>Friends - Woman</h1>
+                      <ul>
+                      {
+                          friendByGender('F')
+                              .map(
+                                  (friend, index) => (
+                                      <li key={index}>{friend.name}</li>
+                                  )
+                              )
+                      }
+                      </ul>
+                  </div>
+              )
+          }
+      };
 
       ReactDOM.render(
-        App,
+        <App />,
         document.getElementById('root')
       );
     </script>
