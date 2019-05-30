@@ -10,8 +10,9 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+      const HelloWorld = React.createElement('h1', null, `Hello, Name!`);
       ReactDOM.render(
-        <h1>Hello React Ironhackers!</h1>,
+        HelloWorld,
         document.getElementById('root')
       );
     </script>
