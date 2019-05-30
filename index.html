@@ -20,48 +20,50 @@
         { name: 'Phoebe', gender:'F'}
       ];
 
-      const friendByGender = (gender) => {
-          return friends.filter((friend) => {
+      class List extends React.Component {
+
+        friendByGender = () => {
+          const {friendsList, gender} = this.props;
+          return friendsList.filter((friend) => {
               return (friend.gender==gender)
                 ?  friend
                 : null;
           });
+        }
+
+        render() {
+            return(
+                <ul>
+                    {
+                        this.friendByGender()
+                            .map(
+                                (friend, index) => (
+                                    <li key={index}>{friend.name}</li>
+                                )
+                            )
+                    }
+                </ul>
+            )
+          }
       }
 
       class App extends React.Component {
           render() {
+              const {friendsList} = this.props;
               return (
                   <div className="app">
                       <h1>Friends - Men</h1>
-                      <ul>
-                      {
-                          friendByGender('M')
-                              .map(
-                                  (friend, index) => (
-                                      <li key={index}>{friend.name}</li>
-                                  )
-                              )
-                      }
-                      </ul>
+                      <List friendsList={friendsList} gender="M"/>
 
                       <h1>Friends - Woman</h1>
-                      <ul>
-                      {
-                          friendByGender('F')
-                              .map(
-                                  (friend, index) => (
-                                      <li key={index}>{friend.name}</li>
-                                  )
-                              )
-                      }
-                      </ul>
+                      <List friendsList={friendsList} gender="F"/>
                   </div>
               )
           }
       };
 
       ReactDOM.render(
-        <App />,
+        <App friendsList={friends} />,
         document.getElementById('root')
       );
     </script>
