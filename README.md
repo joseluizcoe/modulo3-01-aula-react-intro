@@ -1,2 +1,2 @@
-# aula-react
-Exemplos de react
+# React Intro
+Exemplos utilizados na primeira aula de React.
